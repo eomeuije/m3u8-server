@@ -16,14 +16,9 @@ app.get('/', (request, response) => {
   })
 })
 
-app.get('/hls', (request, response) => {
-  response.status(404).json({
-    'message': 'unknown channel name'
-  })
-})
-
-app.get('/hls/:id', async (request, response) => {
-  let id = request.params.id
+app.get('/hls', async (request, response) => {
+  let id = request.query.id
+  let oauth = request.query.oauth || 'OAuth 2lflg6mbx63kz93fsnibdzngy15d7y'
   let token = await fetch(`https://gql.twitch.tv/gql`, {
     "method": 'POST',
     "headers": {
@@ -31,7 +26,8 @@ app.get('/hls/:id', async (request, response) => {
       'Content-Type': 'application/json',
       'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36',
       'X-Device-Id': 'twitch-web-wall-mason',
-      'Device-ID': 'twitch-web-wall-mason'
+      'Device-ID': 'twitch-web-wall-mason',
+      'Authorization': oauth
     },
     "body": JSON.stringify({
       "operationName": "PlaybackAccessToken",
@@ -120,7 +116,8 @@ app.get('/hls-raw/:data', async (request, response) => {
       'Content-Type': 'application/json',
       'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36',
       'X-Device-Id': 'twitch-web-wall-mason',
-      'Device-ID': 'twitch-web-wall-mason'
+      'Device-ID': 'twitch-web-wall-mason',
+      'Authorization': oauth
     },
     "body": JSON.stringify({
       "operationName": "PlaybackAccessToken",
