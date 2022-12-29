@@ -176,6 +176,6 @@ app.get('/hls-raw/:data', async (request, response) => {
   }
 })
 
-app.listen(9080, () => {
+app.listen(80, () => {
   console.log("API started")
 })
