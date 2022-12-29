@@ -4,6 +4,7 @@
   "description": "forBijou",
   "main": "m3u8.js",
   "scripts": {
+    "start": "node m3u8.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
