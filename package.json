@@ -1,0 +1,19 @@
+{
+  "name": "autovideodemo",
+  "version": "1.0.0",
+  "description": "forBijou",
+  "main": "m3u8.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eomeuije/m3u8-server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eomeuije/m3u8-server/issues"
+  },
+  "homepage": "https://github.com/eomeuije/m3u8-server#readme"
+}
